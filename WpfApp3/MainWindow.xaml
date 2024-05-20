@@ -1,0 +1,23 @@
+﻿<Window x:Class="Task_3_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Geometry App" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+            <Button Content="Browse" Command="{Binding BrowseCommand}" Margin="0 0 10 0"/>
+            <ComboBox ItemsSource="{Binding AvailableTypes}" DisplayMemberPath="DisplayName" SelectedItem="{Binding SelectedType}" Width="200"/>
+        </StackPanel>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding Methods}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedMethod}" Margin="10"/>
+
+        <TextBox Grid.Row="1" Text="{Binding Parameters}" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Right" Width="200"/>
+
+        <Button Grid.Row="1" Content="Execute" Command="{Binding ExecuteCommand}" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Bottom"/>
+        <TextBlock Text="{Binding Result}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </Grid>
+</Window>
